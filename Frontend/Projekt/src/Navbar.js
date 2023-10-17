@@ -19,7 +19,7 @@ export const Navbar = () => {
         <span>Home</span>
         <span>Suche</span>
         <span>Whatever</span>
-        <span onclick>Spinning fish</span>
+        <span >Spinning fish</span>
         </NavbarContainer>
     )
 }
