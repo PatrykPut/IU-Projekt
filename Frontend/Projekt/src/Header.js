@@ -4,6 +4,8 @@ const HeaderContainer = styled.div`
     background-color: green;
     width: 100vw;
     height: 100px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
 `;
 
 export const Header = () => {
