@@ -1,0 +1,6 @@
+FROM mariadb:10.5.8  
+  
+ENV MYSQL_ROOT_PASSWORD=root  
+ENV MYSQL_DATABASE=iuprojekt  
+ENV MYSQL_USER=patryk 
+ENV MYSQL_PASSWORD=iuprojekt 
