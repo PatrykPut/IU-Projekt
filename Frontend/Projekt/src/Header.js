@@ -4,16 +4,24 @@ const HeaderContainer = styled.div`
     background-color: green;
     width: 100vw;
     height: 100px;
-    border-top-right-radius: 5px;
-    border-top-left-radius: 5px;
+
+    display: flex;
+    align-items: center;
+`;
+
+const Film = styled.img`
+    height: 50%;
+    margin-left: 20px;
+
 `;
 
 export const Header = () => {
     return (
         <HeaderContainer>
             <h1>
-                Filmbibliothek
+                Filmbibliothek 
             </h1>
+            <Film src='film.png'/>
         </HeaderContainer>
     )
 }
