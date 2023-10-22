@@ -6,6 +6,10 @@ const NavbarContainer = styled.div`
     background-color: lightgreen;
     height: 50px;
     display: flex;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-width: 10px;
+    border-color: black;
     justify-content: space-between;
 `;
 
@@ -33,6 +37,7 @@ export const Navbar = () => {
 
     return (
         <NavbarContainer>
+
         <Filter value={sortOption} onChange={handleSort}>
             Filter
             <option selected disabled hidden>Sort</option>
