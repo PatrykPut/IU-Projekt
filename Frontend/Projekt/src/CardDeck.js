@@ -1,16 +1,18 @@
 import styled from "styled-components"
 import { FilmCard } from "./FilmCard";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { FilmContext } from "./FilmContext";
 
 const CardDeckContainer = styled.div`
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
-`;
+    `;
 
 export const CardDeck = () => {
 
     const [films, setFilms] = useState([]);
+
+    const { searchTerm, sortOption } = useContext(FilmContext);
 
     useEffect(() => {
     fetch('http://localhost/connection.php')
@@ -20,9 +22,24 @@ export const CardDeck = () => {
     }) 
 },[]);
 
+    const sortedFilms = [...films].sort((a, b) => {
+        switch (sortOption) {
+            case 'releaseYear':
+                return b.releaseYear - a.releaseYear;
+
+            case 'duration':
+                return b.duration - a.duration;
+                
+            default: 
+                return 0;
+        }
+    })
+
+    const filteredFilms = sortedFilms.filter(film => film.name.toLowerCase().includes(searchTerm.toLowerCase()))
+
     return (
         <CardDeckContainer>
-            {films.map(film => (
+            {filteredFilms.map(film => (
                 <FilmCard key={film.id} film={film}/>
             ))} 
         </CardDeckContainer>    
