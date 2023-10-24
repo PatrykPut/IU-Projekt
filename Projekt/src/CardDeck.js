@@ -15,9 +15,10 @@ export const CardDeck = () => {
     const { searchTerm, sortOption } = useContext(FilmContext);
 
     useEffect(() => {
-    fetch('http://localhost/connection.php')
+    fetch('http://localhost/IUProjekt/Projekt/src/connection.php')
     .then((response) => response.json())
     .then(data => {
+        console.log(data);
         setFilms(data);
     }) 
 },[]);
@@ -29,7 +30,15 @@ export const CardDeck = () => {
 
             case 'duration':
                 return b.duration - a.duration;
-                
+
+            case 'mostRatings':    
+                return b.ratings.length - a.ratings.length;
+
+            case 'bestRatings':
+                 const avgRatingA = a.ratings.reduce((acc, cur) => acc + cur.rating, 0) / a.ratings.length || 0;    
+                 const avgRatingB = b.ratings.reduce((acc, cur) => acc + cur.rating, 0) / b.ratings.length || 0;
+                 return avgRatingB - avgRatingA;    
+
             default: 
                 return 0;
         }
