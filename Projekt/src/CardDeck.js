@@ -4,8 +4,11 @@ import { useContext, useEffect, useState } from "react";
 import { FilmContext } from "./FilmContext";
 
 const CardDeckContainer = styled.div`
+    top: 22vh;
+    position: relative;
     display: flex;
     flex-wrap: wrap;
+    z-index: -1;
     `;
 
 export const CardDeck = () => {
