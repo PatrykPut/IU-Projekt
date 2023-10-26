@@ -4,13 +4,16 @@ import { FilmContext } from "./FilmContext";
 
 const NavbarContainer = styled.div`
     background-color: lightgreen;
-    height: 50px;
+    height: 7vh;
+    width: 100%;
+    top: 15vh;
     display: flex;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     border-width: 10px;
     border-color: black;
     justify-content: space-between;
+    position: fixed;
 `;
 
 const Filter = styled.select`
