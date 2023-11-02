@@ -8,7 +8,6 @@ const CardDeckContainer = styled.div`
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    z-index: -1;
     `;
 
 export const CardDeck = () => {
