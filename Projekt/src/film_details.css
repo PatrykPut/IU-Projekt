@@ -1,0 +1,76 @@
+
+
+
+h1 {
+    color: red;
+    font-size: 75px;
+    text-align: center;
+    background-color: grey;
+    border-radius: 3px;
+    padding: 10x;
+    display: block;
+    font-family: Arial;
+}
+
+h2 {
+    color: blanchedalmond;
+    font-size: 50px;
+    text-align: center;
+    font-family: Arial;
+}
+
+h3 {
+    text-align: right;
+    font-family: Arial;
+    font-size: 30px;
+}
+.bewertungsbox {
+    float: right;
+    border-radius: 5px;
+}
+p {
+    text-align: center;
+    font-family: Arial;
+}
+
+body {
+background-color: lightgrey;
+}
+.Film-Plakat {
+    width: 200px;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    border-radius: 10px;
+    opacity: 0.99;
+    
+}
+
+
+
+
+.dropdown {
+    position: absolute;
+    top: 60px;
+    left: 25px;
+    display: inline-block;
+    border: 15px;
+    padding: 15px 30px;
+    background-color: darkgray;
+    border-radius: 3px;
+  }
+  
+  .dropdown-content {
+    display: none;
+    
+    position: absolute;
+    background-color: darkgray;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
