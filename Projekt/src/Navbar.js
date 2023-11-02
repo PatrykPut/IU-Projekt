@@ -14,6 +14,7 @@ const NavbarContainer = styled.div`
     border-color: black;
     justify-content: space-between;
     position: fixed;
+    z-index: 1;
 `;
 
 const Filter = styled.select`

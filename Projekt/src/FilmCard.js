@@ -37,16 +37,23 @@ const FilmCardFront = styled.div`
 const FilmCardBack = styled(FilmCardFront)`
     transform: rotateY(180deg);
 `;
+
+const Image = styled.img`
+    height: auto;
+    width: 100%;
+`;
   
 export const FilmCard = ({film}) => {  
     return (  
         <FilmCardWrapper>  
             <FilmCardContainer>  
-                <FilmCardFront>  
-                    <h3>{film.name}</h3>  
-                    <p>Release Year: {film.releaseYear}</p>  
-                    <p>Director: {film.director}</p>  
-                    <p>Duration: {film.duration}</p>  
+                <FilmCardFront> 
+                    <Image src="django.jpg"></Image> 
+                    <h4>{film.name}</h4>  
+                    <span>Release Year: {film.releaseYear}</span>
+                    <br/>  
+                    <span>Director: {film.director}</span>  
+                    <span>Duration: {film.duration}</span>  
                 </FilmCardFront>  
                 <FilmCardBack>  
                     <p>{film.description}</p>  

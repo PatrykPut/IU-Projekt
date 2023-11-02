@@ -7,6 +7,7 @@ const HeaderContainer = styled.div`
     position: fixed;
     display: flex;
     align-items: center;
+    z-index: 1;
 `;
 
 const Film = styled.img`
