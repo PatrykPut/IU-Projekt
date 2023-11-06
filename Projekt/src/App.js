@@ -14,13 +14,12 @@ function App() {
         <Header/>  
         <Navbar/>  
         <Routes>  
-          <Route path="/" element={<CardDeck />} />  
-          <Route path="/film/:id" element={<FilmDetails />} />  
+          <Route path="/" element={<CardDeck/>} />  
+          <Route path="/:id" element={<FilmDetails/>} />  
         </Routes>  
       </FilmProvider>  
     </Router>  
   );  
 }  
-
 
 export default App;

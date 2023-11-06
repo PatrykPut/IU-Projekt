@@ -1,5 +1,6 @@
 import styled from "styled-components"; 
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 const Title = styled.h1`
   color: red;
@@ -12,25 +13,25 @@ const Title = styled.h1`
   font-family: Arial;
 `; 
 
-
 export const FilmDetails = () => {
 
-  const [films, setFilms] = useState([]);
+  const { id } = useParams();
+  const [film, setFilm] = useState([]);
 
   useEffect(() => {
-  fetch('http://localhost/IUProjekt/Projekt/src/FilmDetails.php')
+  fetch(`http://localhost/IUProjekt/Projekt/src/FilmDetails.php?id=${id}`)
   .then((response) => response.json())
   .then(data => {
-      console.log(data);
-      setFilms(data);
+      setFilm(data[0]);
+      console.log(data)
   }) 
-},[]);
+},[id]);
 
     return (
       <>
-  <Title>Movie Title</Title>                                
+  <Title>{film.name}</Title>                                
   <h2>Movie Description</h2>                          
-  <p>Beschreibung des Filmes. Lorem Ipsum <br/>        
+  <p>{film.description}<br/>        
   Lorem Ipsum <br/>
   Lorem Ipsum</p>
  

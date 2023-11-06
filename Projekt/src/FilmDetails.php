@@ -11,12 +11,15 @@ if ($connection->connect_error) {
   die("Verbindung fehlgeschlagen: " . $connection->connect_error);      
 }    
   
-$filmId = $_GET['id']; 
+$filmId = isset($_GET['id']) ? $_GET['id'] : 1; 
       
-$sqlFilm = "SELECT id, name, releaseYear, director, duration, description FROM film WHERE id = $filmId";   
-$resultFilm = $connection->query($sqlFilm);   
-  
-$data = [];    
+$stmt = $connection->prepare("SELECT id, name, releaseYear, director, duration, description FROM film WHERE id = ?");  
+$stmt->bind_param("i",$filmId);
+$stmt->execute();
+
+$resultFilm = $stmt->get_result();  
+$data = [];
+    
 if ($resultFilm->num_rows > 0) {      
   while($rowFilm = $resultFilm->fetch_assoc()) {      
     $sqlRating = "SELECT comment, rating FROM rating WHERE filmId = " . $rowFilm['id'];     
