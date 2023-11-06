@@ -12,6 +12,7 @@ const Title = styled.h1`
   font-family: Arial;
 `; 
 
+
 export const FilmDetails = () => {
 
   const [films, setFilms] = useState([]);
