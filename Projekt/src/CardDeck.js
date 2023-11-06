@@ -2,6 +2,7 @@ import styled from "styled-components"
 import { FilmCard } from "./FilmCard";
 import { useContext, useEffect, useState } from "react";
 import { FilmContext } from "./FilmContext";
+import { Link } from "react-router-dom";
 
 const CardDeckContainer = styled.div`
     top: 22vh;
@@ -51,8 +52,9 @@ export const CardDeck = () => {
     return (
         <CardDeckContainer>
             {filteredFilms.map(film => (
-                //<Link to={`/film/${film.id}`} key={film.id}/>
+                <Link to={`/${film.id}`} key={film.id}>
                 <FilmCard  film={film}/>
+                </Link>
             ))} 
         </CardDeckContainer>    
     )
