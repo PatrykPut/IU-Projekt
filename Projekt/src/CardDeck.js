@@ -17,7 +17,7 @@ export const CardDeck = () => {
     const { searchTerm, sortOption } = useContext(FilmContext);
 
     useEffect(() => {
-    fetch('http://localhost/IUProjekt/Projekt/src/connection.php')
+    fetch('http://localhost/IUProjekt/Projekt/src/CardDeck.php')
     .then((response) => response.json())
     .then(data => {
         console.log(data);
@@ -51,7 +51,8 @@ export const CardDeck = () => {
     return (
         <CardDeckContainer>
             {filteredFilms.map(film => (
-                <FilmCard key={film.id} film={film}/>
+                //<Link to={`/film/${film.id}`} key={film.id}/>
+                <FilmCard  film={film}/>
             ))} 
         </CardDeckContainer>    
     )

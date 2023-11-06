@@ -3,17 +3,24 @@ import { Navbar } from "./Navbar";
 import { CardDeck } from "./CardDeck";
 import { FilmProvider } from "./FilmContext";
 import { Survey } from "./Survey";
+import { FilmDetails } from "./FilmDetails";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';  
+  
+function App() {  
+  return (  
+    <Router>  
+      <FilmProvider>  
+        <Survey/>  
+        <Header/>  
+        <Navbar/>  
+        <Routes>  
+          <Route path="/" element={<CardDeck />} />  
+          <Route path="/film/:id" element={<FilmDetails />} />  
+        </Routes>  
+      </FilmProvider>  
+    </Router>  
+  );  
+}  
 
-function App() {
-
-  return (
-    <FilmProvider>
-    <Survey/>
-    <Header/>
-    <Navbar/>
-    <CardDeck/>
-    </FilmProvider>
-  );
-}
 
 export default App;

@@ -2,7 +2,7 @@
 header("Access-Control-Allow-Origin: *");  
 $servername = "localhost";    
 $username = "root";    
-$password = "mypass";    
+$password = "";    
 $dbname = "iuprojekt";    
       
 $connection = new mysqli($servername, $username, $password, $dbname);    

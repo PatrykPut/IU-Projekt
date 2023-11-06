@@ -1,4 +1,5 @@
 import styled from "styled-components"; 
+import { useState, useEffect } from "react";
 
 const Title = styled.h1`
   color: red;
@@ -6,12 +7,24 @@ const Title = styled.h1`
   text-align: center;
   background-color: grey;
   border-radius: 3px;
-  padding: 10x;
+  padding: 10px;
   display: block;
   font-family: Arial;
 `; 
 
 export const FilmDetails = () => {
+
+  const [films, setFilms] = useState([]);
+
+  useEffect(() => {
+  fetch('http://localhost/IUProjekt/Projekt/src/FilmDetails.php')
+  .then((response) => response.json())
+  .then(data => {
+      console.log(data);
+      setFilms(data);
+  }) 
+},[]);
+
     return (
       <>
   <Title>Movie Title</Title>                                
@@ -27,7 +40,7 @@ export const FilmDetails = () => {
   <textarea class="bewertungsbox" name="bewertungen" id="bewertungen" cols="60" rows="5"></textarea>
   
   <div class="dropdown">
-      <span><img widht="40" height="30" src="../public/backbutton.png" alt=""/></span>
+      <span><img width="40" height="30" src="../public/backbutton.png" alt=""/></span>
       <div class="dropdown-content">
         <button>Go back</button>
         <button>Go back to homepage</button>

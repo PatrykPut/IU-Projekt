@@ -47,13 +47,11 @@ export const FilmCard = ({film}) => {
     return (  
         <FilmCardWrapper>  
             <FilmCardContainer>  
-                <FilmCardFront> 
-                    <Image src="django.jpg"></Image> 
+                <FilmCardFront>  
                     <h4>{film.name}</h4>  
-                    <span>Release Year: {film.releaseYear}</span>
-                    <br/>  
-                    <span>Director: {film.director}</span>  
-                    <span>Duration: {film.duration}</span>  
+                    <p>Release Year: {film.releaseYear}</p>
+                    <p>Director: {film.director}</p>  
+                    <p>Duration: {film.duration}</p>  
                 </FilmCardFront>  
                 <FilmCardBack>  
                     <p>{film.description}</p>  
