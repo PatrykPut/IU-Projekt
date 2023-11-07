@@ -2,10 +2,12 @@ import styled from 'styled-components';
 
 const HeaderContainer = styled.div`
     background-color: green;
-    height: 100px;
-
+    height: 15vh;
+    width: 100%;
+    position: fixed;
     display: flex;
     align-items: center;
+    z-index: 1;
 `;
 
 const Film = styled.img`
