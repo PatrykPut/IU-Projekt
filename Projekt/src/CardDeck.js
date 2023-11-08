@@ -18,7 +18,9 @@ export const CardDeck = () => {
     const { searchTerm, sortOption } = useContext(FilmContext);
 
     useEffect(() => {
+
     fetch('http://localhost/IUProjekt/Projekt/src/CardDeck.php')
+
     .then((response) => response.json())
     .then(data => {
         console.log(data);
