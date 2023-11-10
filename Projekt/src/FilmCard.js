@@ -6,6 +6,7 @@ const FilmCardContainer = styled.div`
     height: 100%;
     position: relative;
     transition: transform 0.4s;
+    color: black;
 `;
 
 const FilmCardWrapper = styled.div`

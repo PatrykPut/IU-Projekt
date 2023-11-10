@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import styled from "styled-components";
-import { FilmContext } from "./FilmContext";
+import { FilmContext } from "./Context/FilmContext";
 
 const NavbarContainer = styled.div`
     background-color: lightgreen;
