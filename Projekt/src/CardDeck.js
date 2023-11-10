@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { FilmCard } from "./FilmCard";
 import { useContext, useEffect, useState } from "react";
-import { FilmContext } from "./FilmContext";
+import { FilmContext } from "./Context/FilmContext";
 import { Link } from "react-router-dom";
 
 const CardDeckContainer = styled.div`
