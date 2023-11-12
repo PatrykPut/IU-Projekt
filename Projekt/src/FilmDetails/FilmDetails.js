@@ -25,6 +25,8 @@ const RatingButtonContainer = styled.button`
    }
 `;
 
+
+
 const Title = styled.h1`
   color: red;
   font-size: 75px;
@@ -36,7 +38,7 @@ const Title = styled.h1`
 
 const DescriptionTitle = styled.h2`
     color: blanchedalmond;
-    font-size: 50px;
+    font-size: 50;
     text-align: center;
     font-family: Arial;
 `;
@@ -62,20 +64,36 @@ text-align: center;
 `;
 
 const Plakat = styled.img`
-  width: 200px;
-  position: absolute;
-  top: 10px;
-  right: 20px;
+  width: 33%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 10px;
-  opacity: 0.99;
+  opacity: 1;
 `;
 const ImageContainer = styled.div`
-  position: relative;
-  text-align: right;
-  top: 25px;
-  right: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 10px;
-  opacity: 0.99;
+  opacity: 1;
+  
+`;
+const BackButton = styled.button`
+background-color: #e6e6e6;
+border: solid 1px #e6e6e6;
+padding: 10px;
+border-radius: 10px;
+width: 20vw;
+cursor: pointer;
+transition: 0.5s; 
+margin-top: 1vh; 
+
+ &:hover {
+  background-color: #4a4aff;
+  color: white;
+ }
 `;
   
   export const FilmDetails = () => {
@@ -99,30 +117,33 @@ const ImageContainer = styled.div`
   return (
     
       <MainContainer>
-        <Title>{film.name}</Title>                                
-        <DescriptionTitle>Film Beschreibung</DescriptionTitle>                          
-        <TextonSite>{film.description}</TextonSite>
-
+        <Title>{film.name}</Title>           
         <ImageContainer>
           {film.movieposter
             ? <Plakat src={`data:image/jpeg;base64,${film.movieposter}`} alt="Filmplakat" />
             : <p>Kein Bild verfügbar</p>
             }
-        </ImageContainer>
+        </ImageContainer> 
+        <br/><br/><br/><br/><br/>              
+        <DescriptionTitle>Film Beschreibung</DescriptionTitle>                          
+        <TextonSite>{film.description}</TextonSite>
 
+
+        <BackButton onClick={''}>   
+        Go Back
+          </BackButton>
+<br/>
         <RatingButtonContainer onClick={() => setShowSurvey(true)}>
             Make Rating
         </RatingButtonContainer>
+        
+
+        
+
 
         <Survey filmId={id}/>
   
-        <div Name="dropdown">
-          <span><img width="40" height="30" src="../public/backbutton.png" alt=""/></span>
-          <div Name="dropdown-content">
-          <button>Go back</button>
-          <button>Go back to homepage</button>
-        </div>
-        </div>
+
       </MainContainer>
   )
 }
