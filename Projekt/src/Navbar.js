@@ -3,13 +3,12 @@ import styled from "styled-components";
 import { FilmContext } from "./Context/FilmContext";
 
 const NavbarContainer = styled.div`
-    background-color: lightgreen;
-    height: 7vh;
+    background-image: linear-gradient(white, lightgrey);
+    height: 7%;
     width: 100%;
-    top: 15vh;
+    top: 15.9vh;
     display: flex;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-radius: 5px;
     border-width: 10px;
     border-color: black;
     justify-content: space-between;

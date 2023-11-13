@@ -1,13 +1,15 @@
 import styled from 'styled-components';
 
 const HeaderContainer = styled.div`
-    background-color: green;
-    height: 15vh;
+    background-image: linear-gradient(navy, white);
+    height: 10%;
     width: 100%;
     position: fixed;
     display: flex;
     align-items: center;
     z-index: 1;
+    border-radius: 5px;
+    justify-content: left;
 `;
 
 const Film = styled.img`
@@ -16,12 +18,24 @@ const Film = styled.img`
 
 `;
 
+const Title = styled.h1`
+  color: black;
+  font-size: 100%;
+  text-align: center;
+  border-radius: 3px;
+  padding: 10px;
+  font-family: Arial;
+  cursor: pointer;
+`; 
+
 export const Header = () => {
     return (
         <HeaderContainer>
-            <h1>
+            <Title>
+                <h1 onClick={'../src/index.js'}>
                 Filmbibliothek 
-            </h1>
+                </h1>
+                </Title>
             <Film src='film.png'/>
         </HeaderContainer>
     )
