@@ -1,11 +1,12 @@
 import styled from "styled-components"
 import { FilmCard } from "./FilmCard";
 import { useContext, useEffect, useState } from "react";
-import { FilmContext } from "./Context/FilmContext";
+import { FilmContext } from "../Context/FilmContext";
 import { Link } from "react-router-dom";
+import { InsertNewFilm } from "./InsertNewFilm";
 
 const CardDeckContainer = styled.div`
-    top: 22vh;
+    top: 18vh;
     position: relative;
     display: flex;
     flex-wrap: wrap;
@@ -19,7 +20,7 @@ export const CardDeck = () => {
 
     useEffect(() => {
 
-    fetch('http://localhost/IUProjekt/Projekt/src/CardDeck.php')
+    fetch('http://localhost/IUProjekt/Projekt/src/HomePage/CardDeck.php')
 
     .then((response) => response.json())
     .then(data => {
@@ -58,6 +59,7 @@ export const CardDeck = () => {
                 <FilmCard  film={film}/>
                 </Link>
             ))} 
+            <InsertNewFilm/>
         </CardDeckContainer>    
     )
 }

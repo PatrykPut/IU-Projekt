@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const HeaderContainer = styled.div`
     background-image: linear-gradient(navy, white);
@@ -18,7 +19,8 @@ const Film = styled.img`
 
 `;
 
-const Title = styled.h1`
+const Title = styled(Link)`
+  text-decoration: none;
   color: black;
   font-size: 100%;
   text-align: center;
@@ -26,13 +28,17 @@ const Title = styled.h1`
   padding: 10px;
   font-family: Arial;
   cursor: pointer;
+
+  &:hover {
+    color: white;
+  }
 `; 
 
 export const Header = () => {
     return (
         <HeaderContainer>
-            <Title>
-                <h1 onClick={'../src/index.js'}>
+                <Title to="/">
+                <h1>
                 Filmbibliothek 
                 </h1>
                 </Title>

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { FilmContext } from "../Context/FilmContext";
 
 const OpacityContainer = styled.div`
@@ -76,47 +76,49 @@ const Submit = styled.button`
   }
 `;
 
-export const Survey = ({ filmId }) => {
+export const InsertNewRating = ({ filmId }) => {
 
-  const { showSurvey, setShowSurvey, setComment, setRating, comment, rating } = useContext(FilmContext);
+  const { showRatingSurvey, setShowRatingSurvey, setComment, setRating, comment, rating } = useContext(FilmContext);
 
   const SubmitRating = async () => {
 
-    try {
-      const response = await fetch('http://localhost/IUProjekt/Projekt/src/FilmDetails/ReceiveSubmit.php', {
-      method: 'POST',
-      headers: {
-        'Content-Type' : 'application/json',
-      },
-      body: JSON.stringify({
-        comment: comment,
-        rating: rating,
-        filmId: filmId,
-      }),
-    });
-
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-
-    setComment('');
-    setRating('');
-    setShowSurvey(false);
-    } catch (error) {
-      console.error('There has been a problem with the fetch: ' + error)
+    if (comment.length == 0 || (rating < 1 || rating > 5)) {
+      alert("Geben sie gültige Werte ein")
     } 
-  };
+    else {
+      try {
+        const response = await fetch('http://localhost/IUProjekt/Projekt/src/FilmDetails/InsertNewRating.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type' : 'application/json',
+        },
+        body: JSON.stringify({
+          comment: comment,
+          rating: rating,
+          filmId: filmId,
+        }),
+      });
+  
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      setShowRatingSurvey(false);
+      } catch (error) {
+        console.error('There has been a problem with the fetch: ' + error)
+      } 
+    };
+    }
 
     return (
         <div>
-            <OpacityContainer show={showSurvey}>
-                <SurveyContainer>
-            <h2>Rate the game</h2>
-            <Leave onClick={() => setShowSurvey(false)}>x</Leave>
-            <InputComment placeholder="Comment" value={comment} onChange={e => setComment(e.target.value)}/>
-            <InputRating type="number" placeholder="Rating 1-5" value={rating} onChange={e => setRating(e.target.value)}/>
-            <Submit onClick={SubmitRating}>Submit Rating</Submit>
-            </SurveyContainer>
+            <OpacityContainer show={showRatingSurvey}>
+              <SurveyContainer>
+                <h2>Rate the game</h2>
+                <Leave onClick={() => setShowRatingSurvey(false)}>x</Leave>
+                <InputComment placeholder="Comment" value={comment} onChange={e => setComment(e.target.value)}/>
+                <InputRating type="number" placeholder="Rating 1-5" value={rating} onChange={e => setRating(e.target.value)}/>
+                <Submit onClick={SubmitRating}>Submit Rating</Submit>
+              </SurveyContainer>
             </OpacityContainer>
         </div>
     );

@@ -15,6 +15,7 @@ const FilmCardWrapper = styled.div`
     perspective: 1000px;
     margin-top: 3vh;
     margin-left: 3.5vw;
+    box-sizing: border-box;
     &:hover ${FilmCardContainer} {
       transform: rotateY(180deg);
     }
