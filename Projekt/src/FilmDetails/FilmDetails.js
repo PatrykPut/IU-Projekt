@@ -1,12 +1,12 @@
 import styled from "styled-components"; 
 import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
-import { InsertNewRating, Survey } from "./InsertNewRating";
+import { InsertNewRating } from "./InsertNewRating";
 import { FilmContext } from "../Context/FilmContext";
 
 const MainContainer = styled.div`
   position: relative;
-  top: 22vh;
+  top: 18vh;
 `;
 
 const RatingButtonContainer = styled.button`
@@ -78,6 +78,10 @@ margin-top: 1vh;
   color: white;
  }
 `;
+
+const Infos = styled.div`
+
+`;
   
   export const FilmDetails = () => {
 
@@ -88,11 +92,8 @@ margin-top: 1vh;
   useEffect(() => {
   fetch(`http://localhost/IUProjekt/Projekt/src/FilmDetails/FilmDetails.php?id=${id}`)
   .then((response) => response.json())
-  .then(data => {
-    console.log("Received data:", data);  
+  .then(data => {  
     setFilm(data[0]);
-     
-    console.log(data)
   }) 
       
 },[id]);
@@ -107,17 +108,19 @@ margin-top: 1vh;
             : <p>Kein Bild verfügbar</p>
             }
         </ImageContainer> 
-        <br/><br/><br/><br/><br/>              
+        <Infos>
+            <p>Release Year: {film.releaseYear}</p>
+            <p>Director: {film.director}</p>
+            <p>Duration: {film.duration}</p>
+        </Infos>              
         <DescriptionTitle>Film Beschreibung</DescriptionTitle>                          
         <TextonSite>{film.description}</TextonSite>
-
-
         <BackButton onClick={''}>   
-        Go Back
-          </BackButton>
-<br/>
+          Go Back
+        </BackButton>
+        <br/>
         <RatingButtonContainer onClick={() => setShowRatingSurvey(true)}>
-            Make Rating
+          Make Rating
         </RatingButtonContainer>
         <InsertNewRating filmId={id}/>
       </MainContainer>
