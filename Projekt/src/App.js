@@ -1,18 +1,23 @@
-import { Header } from "./Header";
-import { Navbar } from "./Navbar";
-import { CardDeck } from "./CardDeck";
+import { Navbar } from "./Header/Navbar";
+import { Header } from "./Header/Header";
+import { CardDeck } from "./HomePage/CardDeck";
 import { FilmProvider } from "./Context/FilmContext";
 import { FilmDetails } from "./FilmDetails/FilmDetails";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';  
   
-function App() {  
-  return (  
+function App() { 
+  
+  return ( 
     <Router>  
       <FilmProvider>    
-        <Header/>  
-        <Navbar/>  
+        <Header/>
         <Routes>  
-          <Route path="/" element={<CardDeck/>} />  
+          <Route path="/" element={
+          <>
+          <Navbar/>
+          <CardDeck/>
+          </>
+          } />  
           <Route path="/:id" element={<FilmDetails/>} />  
         </Routes>  
       </FilmProvider>  

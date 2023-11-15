@@ -1,7 +1,7 @@
 import styled from "styled-components"; 
 import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
-import { Survey } from "./Survey";
+import { InsertNewRating, Survey } from "./InsertNewRating";
 import { FilmContext } from "../Context/FilmContext";
 
 const MainContainer = styled.div`
@@ -25,8 +25,6 @@ const RatingButtonContainer = styled.button`
    }
 `;
 
-
-
 const Title = styled.h1`
   color: red;
   font-size: 75px;
@@ -41,20 +39,6 @@ const DescriptionTitle = styled.h2`
     font-size: 50;
     text-align: center;
     font-family: Arial;
-`;
-
-const RatingInput = styled.button`
-    border-radius: 10px;
-    font-size: 20px;
-    border: none;
-    background-color: lightblue;
-    padding: 10px;
-    cursor: pointer;
-
-    &:hover {
-      background-color: blue;
-      color: white;
-    }
 `;
 
 const TextonSite = styled.p`
@@ -72,7 +56,6 @@ const Plakat = styled.img`
   opacity: 1;
 `;
 const ImageContainer = styled.div`
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -100,7 +83,7 @@ margin-top: 1vh;
 
   const { id } = useParams();
   const [film, setFilm] = useState([]);
-  const { setShowSurvey } = useContext(FilmContext);
+  const { setShowRatingSurvey } = useContext(FilmContext);
 
   useEffect(() => {
   fetch(`http://localhost/IUProjekt/Projekt/src/FilmDetails/FilmDetails.php?id=${id}`)
@@ -133,17 +116,10 @@ margin-top: 1vh;
         Go Back
           </BackButton>
 <br/>
-        <RatingButtonContainer onClick={() => setShowSurvey(true)}>
+        <RatingButtonContainer onClick={() => setShowRatingSurvey(true)}>
             Make Rating
         </RatingButtonContainer>
-        
-
-        
-
-
-        <Survey filmId={id}/>
-  
-
+        <InsertNewRating filmId={id}/>
       </MainContainer>
   )
 }
