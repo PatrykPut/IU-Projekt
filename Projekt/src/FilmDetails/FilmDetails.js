@@ -22,29 +22,50 @@ const RatingButtonContainer = styled.button`
    &:hover {
     background-color: #4a4aff;
     color: white;
+    transform: scale(1.1);
    }
 `;
 
 const Title = styled.h1`
-  color: red;
+  color: #262727;
   font-size: 75px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   border-radius: 3px;
   padding: 10px;
   font-family: Arial;
+  text-shadow: 0px 8px 15px rgba(1, 1, 1, 1);
 `; 
 
 const DescriptionTitle = styled.h2`
-    color: blanchedalmond;
+    color: black;
     font-size: 50;
     text-align: center;
     font-family: Arial;
+    background-color: #DCDCDC;
+    border: 2px solid black;
+    padding: 10px;
+    max-width:20%;
+    margin: auto;
+    border-radius: 5px;
+    box-shadow: 0px 8px 15px rgba(1, 1, 1, 1);
+    opacity: 0.75;
+
 `;
 
 const TextonSite = styled.p`
-text-align: center;
+  	text-align: center;
     font-family: Arial;
     font-size: 25px;
+    background-color: #DCDCDC;
+    border: 2px solid black;
+    padding: 1%;
+    max-width:55%;
+    margin: auto;
+    border-radius: 5px;
+    box-shadow: 0px 8px 15px rgba(1, 1, 1, 1);
+    opacity: 0.75;
 `;
 
 const Plakat = styled.img`
@@ -80,7 +101,19 @@ margin-top: 1vh;
 `;
 
 const Infos = styled.div`
-
+    text-align: left;
+    font-family: Arial;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: #DCDCDC;
+    border: 2px solid black;
+    padding: 1%;
+    max-width:15%;
+    margin-left: auto;
+    border-radius: 5px;
+    display: block;
+    box-shadow: 0px 8px 15px rgba(1, 1, 1, 1);
+    opacity: 0.75;
 `;
   
   export const FilmDetails = () => {
@@ -101,20 +134,23 @@ const Infos = styled.div`
   return (
     
       <MainContainer>
-        <Title>{film.name}</Title>           
+        <Title>{film.name}</Title>  
+
         <ImageContainer>
           {film.movieposter
             ? <Plakat src={`data:image/jpeg;base64,${film.movieposter}`} alt="Filmplakat" />
             : <p>Kein Bild verfügbar</p>
             }
         </ImageContainer> 
+        <br></br>      
+        <DescriptionTitle>Film Beschreibung</DescriptionTitle> 
+        <br></br>                         
+        <TextonSite>{film.description}</TextonSite>
         <Infos>
             <p>Release Year: {film.releaseYear}</p>
             <p>Director: {film.director}</p>
             <p>Duration: {film.duration}</p>
-        </Infos>              
-        <DescriptionTitle>Film Beschreibung</DescriptionTitle>                          
-        <TextonSite>{film.description}</TextonSite>
+        </Infos>         
         <BackButton onClick={''}>   
           Go Back
         </BackButton>
