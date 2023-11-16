@@ -18,6 +18,7 @@ const FilmCardWrapper = styled.div`
     box-sizing: border-box;
     &:hover ${FilmCardContainer} {
       transform: rotateY(180deg);
+
     }
 `;
 
@@ -34,6 +35,7 @@ const FilmCardFront = styled.div`
     backface-visibility: hidden;
     overflow: hidden;
     background-color: white;
+    box-shadow: 0px 8px 15px rgba(1, 1, 1, 1);
 `;
 
 const FilmCardBack = styled(FilmCardFront)`

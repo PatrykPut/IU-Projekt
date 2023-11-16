@@ -73,6 +73,7 @@ const Submit = styled.button`
   &:hover {
     background-color: blue;
     color: white;
+    transform: scale(1.5);
   }
 `;
 
