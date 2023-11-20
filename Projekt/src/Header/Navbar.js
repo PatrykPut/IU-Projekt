@@ -21,8 +21,6 @@ background-image: linear-gradient(to right, rgba(70,130,180,1) 0%, rgba(85,140,1
     box-shadow: 0px 5px 15px rgba(1, 1, 1, 1);
 `;
 
-
-
 const Search = styled.input`
     width: 50%;
     background-color: white;
@@ -32,30 +30,27 @@ const Search = styled.input`
     transition: 0.5s; 
     height:30%;
     
-
     &:hover {
-
         transform: scale(1.01);
     }
-    
 `;
 
 const NewFilmButton = styled.button`
     background-color: #e6e6e6;
-    border: solid 1px #e6e6e6;
     padding: 1%;
     border-radius: 10px;
+    border: none;
     width: 10%;
     font-family: 'Arial';    
     cursor: pointer;
-    transition: all 0.3s ease-in-out; 
+    transition: 0.2s; 
     margin-right: 2vw; 
     box-shadow: 0px 5px 15px rgba(1, 1, 1, 1);
-    text-shadow: 1px 1px 1px black;
     height: 30%;
+    display: flex;
     align-items: center;
+    justify-content: center;
     
-
     &:hover {
         background-color: #4a4aff;
         color: white;
