@@ -128,7 +128,7 @@ export const InsertNewFilm = ({ filmId }) => {
                 <Input placeholder="Duration" value={duration} onChange={e => setDuration(e.target.value)}/>
                 <Input placeholder="Director" value={director} onChange={e => setDirector(e.target.value)}/>
                 <InputDescription placeholder="Description" value={description} onChange={e => setDescription(e.target.value)}/>
-                <Submit onClick={SubmitRating}>Submit Rating</Submit>
+                <Submit onClick={SubmitRating}>Enter Film</Submit>
               </SurveyContainer>
             </OpacityContainer>
         </div>
