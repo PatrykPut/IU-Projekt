@@ -28,7 +28,12 @@ const Title = styled(Link)`
   border-radius: 3px;
   padding: 10px;
   font-family: Arial;
-  cursor: pointer;  
+  cursor: pointer; 
+  transition: 0.2s; 
+
+  &:hover {
+    font-size: 105%;
+  }
 `; 
 
 export const Header = () => {

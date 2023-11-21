@@ -11,14 +11,14 @@ const FilmCardContainer = styled.div`
 
 const FilmCardWrapper = styled.div`
     width: 20vw;
-    height: 30vh;
+    height: 35vh;
     perspective: 1000px;
     margin-top: 3vh;
     margin-left: 3.5vw;
     box-sizing: border-box;
+
     &:hover ${FilmCardContainer} {
       transform: rotateY(180deg);
-
     }
 `;
 
@@ -42,12 +42,34 @@ const FilmCardBack = styled(FilmCardFront)`
     transform: rotateY(180deg);
 `;
 
-const Image = styled.img`
-    height: auto;
-    width: 100%;
+const Star = styled.span`
+    font-size: 25px;
 `;
+
+const AverageRating = (ratings) => {
+    if(ratings && ratings.length) {
+        const sum = ratings.reduce((a, b) => a + parseFloat(b.rating), 0);
+        const average = sum / ratings.length;
+        const roundedAverage = Math.round(average);
+        return roundedAverage;
+    }
+    return 0;
+}
   
 export const FilmCard = ({film}) => {  
+
+    const averageRating = AverageRating(film.ratings);
+
+    const stars = [];
+    for(let i = 0; i < 5; i++) {
+        if(i < averageRating) {
+            stars.push(<Star key={i} style={{color: '#f3e03b'}}>{"★"}</Star>)
+        }
+        else {
+            stars.push(<Star key={i}>{"☆"}</Star>)
+        }
+    }
+
     return (  
         <FilmCardWrapper>  
             <FilmCardContainer>  
@@ -55,7 +77,10 @@ export const FilmCard = ({film}) => {
                     <h4>{film.name}</h4>  
                     <p>Release Year: {film.releaseYear}</p>
                     <p>Director: {film.director}</p>  
-                    <p>Duration: {film.duration}</p>  
+                    <p>Duration: {film.duration} min</p>  
+                    <div> 
+                        {stars}
+                    </div>  
                 </FilmCardFront>  
                 <FilmCardBack>  
                     <p>{film.description}</p>  
