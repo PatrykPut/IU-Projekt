@@ -5,7 +5,7 @@ import { FilmContext } from "../Context/FilmContext";
 const OpacityContainer = styled.div`
   height: 100vh;
   width: 100vw;
-  background-color: rgba(0 ,0 ,0 , 0.7); 
+  background-color: rgba(0 ,0 ,0 , 0.5); 
   position: fixed;
   z-index: 2;
   top: 0;
@@ -23,11 +23,18 @@ const SurveyContainer = styled.div`
   width: 20vw;
   padding: 10px;
   border-radius: 20px;
+  border-color: solid black 1px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   transition: 1s;
-  background-color: lightblue;
+  background-color:lightgrey;
+  background-image: linear-gradient(to right, rgba(70,130,180,0.25) 0%, rgba(85,140,195,0.25) 20%, rgba(100,149,237,0.25) 40%, rgba(75,175,210,0.25) 50%, rgba(64,224,208,0.25) 60%, rgba(0,191,255,0.25) 80%, rgba(70,130,180,0.25) 100%);
+  font-size: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  box-shadow: 0px 8px 15px rgba(1, 1, 1, 1);
+  text-shadow: 0px 3px 10px rgba(1, 1, 1, 1);
 `;
 
 const Leave = styled.button`
@@ -37,11 +44,11 @@ const Leave = styled.button`
   font-size: 1vw;
   cursor: pointer;
   position: relative;
-  left: 4.3vw;
+  left: 4vw;
   border-radius: 10px;
-  border: none;
+  border: solid black 0.1px;
   color: #a1a1a1;
-
+  
   &:hover {
     background-color: #FF5630;
     color: white;
@@ -53,6 +60,12 @@ const Input = styled.input`
   width: 80%;  
   border: none;
   border-radius: 5px;
+  font-size: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+
+  &:hover {
+    transform: scale(1.01);
+   }
 `;
 
 const InputDescription = styled.textarea`
@@ -60,6 +73,8 @@ const InputDescription = styled.textarea`
   width: 80%;  
   border: none;
   border-radius: 5px;
+  font-size: 100%;
+  font-family: Arial, Helvetica, sans-serif;
 `;
 
 const Submit = styled.button`

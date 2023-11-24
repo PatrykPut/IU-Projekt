@@ -18,12 +18,23 @@ const RatingButtonContainer = styled.button`
   cursor: pointer;
   transition: 0.5s; 
   margin-top: 1vh; 
+  font-size: 20px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
 
    &:hover {
     background-color: #4a4aff;
     color: white;
-    transform: scale(1.1);
+    transform: scale(1.01);
    }
+`;
+
+const ButtonContainer = styled.div`
+  position: relative;
+  bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Title = styled.h1`
@@ -38,34 +49,43 @@ const Title = styled.h1`
   text-shadow: 0px 8px 15px rgba(1, 1, 1, 1);
 `; 
 
+const TitleInBox = styled.p`
+  font-size: 120%;
+  font-weight: bold;
+  color: black;
+`;
+
 const DescriptionTitle = styled.h2`
     color: black;
-    font-size: 50;
-    text-align: center;
+    font-size: 120%;
+    text-align: left;
     font-family: Arial;
-    background-color: #DCDCDC;
-    border: 2px solid black;
-    padding: 10px;
-    max-width:20%;
-    margin: auto;
-    border-radius: 5px;
-    box-shadow: 0px 8px 15px rgba(1, 1, 1, 1);
-    opacity: 0.75;
+
 
 `;
 
 const TextonSite = styled.p`
-  	text-align: center;
+    text-align: left;
     font-family: Arial;
     font-size: 25px;
-    background-color: #DCDCDC;
+    font-weight: bold;
+    background-color: rgba(220, 220, 220, 0.10);
     border: 2px solid black;
     padding: 1%;
-    max-width:55%;
-    margin: auto;
+    max-width:18%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
     border-radius: 5px;
+    display: block;
     box-shadow: 0px 8px 15px rgba(1, 1, 1, 1);
-    opacity: 0.75;
+    position: fixed;
+    left: 1%;
+    height: flex;
+    align-items: stretch;
+    top: 13%;
+    
+  
 `;
 
 const Plakat = styled.img`
@@ -75,6 +95,7 @@ const Plakat = styled.img`
   align-items: center;
   border-radius: 10px;
   opacity: 1;
+  box-shadow: 0px 8px 15px rgba(1, 1, 1, 1);
 `;
 const ImageContainer = styled.div`
   display: flex;
@@ -84,37 +105,31 @@ const ImageContainer = styled.div`
   opacity: 1;
   
 `;
-const BackButton = styled.button`
-background-color: #e6e6e6;
-border: solid 1px #e6e6e6;
-padding: 10px;
-border-radius: 10px;
-width: 20vw;
-cursor: pointer;
-transition: 0.5s; 
-margin-top: 1vh; 
 
- &:hover {
-  background-color: #4a4aff;
-  color: white;
- }
-`;
 
 const Infos = styled.div`
     text-align: left;
     font-family: Arial;
     font-size: 25px;
     font-weight: bold;
-    background-color: #DCDCDC;
+    background-color: rgba(220, 220, 220, 0.10);
     border: 2px solid black;
     padding: 1%;
-    max-width:15%;
+    max-width:18%;
     margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
     border-radius: 5px;
     display: block;
     box-shadow: 0px 8px 15px rgba(1, 1, 1, 1);
-    opacity: 0.75;
+    position: fixed;
+    right: 1%;
+    height: flex;
+    align-items: stretch;
+    top: 13%;
 `;
+
+
   
   export const FilmDetails = () => {
 
@@ -134,31 +149,38 @@ const Infos = styled.div`
   return (
     
       <MainContainer>
-        <Title>{film.name}</Title>  
 
+
+        <Title>{film.name}</Title>  
+       
         <ImageContainer>
           {film.movieposter
             ? <Plakat src={`data:image/jpeg;base64,${film.movieposter}`} alt="Filmplakat" />
             : <p>Kein Bild verfügbar</p>
             }
         </ImageContainer> 
-        <br></br>      
-        <DescriptionTitle>Film Beschreibung</DescriptionTitle> 
+        <br></br>   
+ 
+
         <br></br>                         
-        <TextonSite>{film.description}</TextonSite>
+        <TextonSite><DescriptionTitle>Filmbeschreibung: <br></br></DescriptionTitle>{film.description}</TextonSite>
         <Infos>
-            <p>Release Year: {film.releaseYear}</p>
-            <p>Director: {film.director}</p>
-            <p>Duration: {film.duration}</p>
-        </Infos>         
-        <BackButton onClick={''}>   
-          Go Back
-        </BackButton>
+            <p><TitleInBox>{film.name}</TitleInBox></p>  
+
+            <p>Release Year:<br></br><br></br> {film.releaseYear}</p> 
+            
+            <p>Director:<br></br><br></br> {film.director}</p> 
+
+            <p>Duration:<br></br><br></br> {film.duration} min.</p> 
+        </Infos> 
+
+              
         <br/>
-        <RatingButtonContainer onClick={() => setShowRatingSurvey(true)}>
-          Make Rating
-        </RatingButtonContainer>
-        <InsertNewRating filmId={id}/>
+        <ButtonContainer>
+      <RatingButtonContainer onClick={() => setShowRatingSurvey(true)}>
+        Make Rating
+      </RatingButtonContainer>
+    </ButtonContainer>
       </MainContainer>
   )
 }
