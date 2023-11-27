@@ -6,7 +6,7 @@ import { Filter } from "./FilterDropdown";
 
 
 const NavbarContainer = styled.div`
-background-image: linear-gradient(to right, rgba(70,130,180,1) 0%, rgba(85,140,195,1) 20%, rgba(100,149,237,1) 40%, rgba(75,175,210,1) 50%, rgba(64,224,208,1) 60%, rgba(0,191,255,1) 80%, rgba(70,130,180,1) 100%);    height: 7%;
+    background-image: linear-gradient(to right, rgba(70,130,180,1) 0%, rgba(85,140,195,1) 20%, rgba(100,149,237,1) 40%, rgba(75,175,210,1) 50%, rgba(64,224,208,1) 60%, rgba(0,191,255,1) 80%, rgba(70,130,180,1) 100%);    height: 7%;
     width: 100%;
     top: 10vh;
     display: flex;
@@ -39,9 +39,10 @@ const NewFilmButton = styled.button`
     background-color: #e6e6e6;
     padding: 1%;
     border-radius: 10px;
-    border: none;
+    border: solid black 1px;
     width: 10%;
-    font-family: 'Arial';    
+    font-family: 'Arial';  
+    font-weight: bold;  
     cursor: pointer;
     transition: 0.2s; 
     margin-right: 2vw; 
