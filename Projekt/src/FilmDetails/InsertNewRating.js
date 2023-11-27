@@ -88,7 +88,7 @@ const Submit = styled.button`
   &:hover {
     background-color: blue;
     color: white;
-    transform: scale(1.01);
+    transform: scale(1.1);
   }
 `;
 
@@ -129,7 +129,7 @@ export const InsertNewRating = ({ filmId }) => {
         <div>
             <OpacityContainer show={showRatingSurvey}>
               <SurveyContainer>
-                <h2>Rate the game</h2>
+                <h2>Rate the film</h2>
                 <Leave onClick={() => setShowRatingSurvey(false)}>x</Leave>
                 <InputComment placeholder="Comment" value={comment} onChange={e => setComment(e.target.value)}/>
                 <InputRating type="number" placeholder="Rating 1-5" value={rating} onChange={e => setRating(e.target.value)}/>

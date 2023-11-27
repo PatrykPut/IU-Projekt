@@ -129,7 +129,17 @@ const Infos = styled.div`
     top: 13%;
 `;
 
+    const RatingContainer = styled.div`
+    display: flex;
+    width: 50vw;
+    justify-content: space-between;
+`;
 
+    const Rating = styled.div`
+    background-color: white;  
+    padding: 15px;  
+    border-radius: 10px;
+`; 
   
   export const FilmDetails = () => {
 
@@ -176,11 +186,17 @@ const Infos = styled.div`
 
               
         <br/>
-        <ButtonContainer>
-      <RatingButtonContainer onClick={() => setShowRatingSurvey(true)}>
-        Make Rating
-      </RatingButtonContainer>
-    </ButtonContainer>
+        
+        <RatingButtonContainer onClick={() => setShowRatingSurvey(true)}>
+          Make Rating
+        </RatingButtonContainer>
+        <InsertNewRating filmId={id}/>
+        <RatingContainer>
+          {film.ratings && film.ratings.map(rating => (<Rating key={rating.id}>
+            <p>Bewertung: {rating.rating}</p>
+            <p>Kommentar: {rating.comment}</p>
+          </Rating>))}
+        </RatingContainer>
       </MainContainer>
   )
 }
