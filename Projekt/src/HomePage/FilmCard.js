@@ -23,7 +23,11 @@ const FilmCardWrapper = styled.div`
 `;
 
 const FilmCardFront = styled.div`
+    background-image: linear-gradient(to right, rgba(70,130,180,0.2) 0%, rgba(85,140,195,0.2) 20%, rgba(100,149,237,0.2) 40%, rgba(75,175,210,0.2) 50%, rgba(64,224,208,0.2) 60%, rgba(0,191,255,0.2) 80%, rgba(70,130,180,0.2) 100%);    height: 7%;
     position: absolute;
+    font-weight:bold;
+    font-size: 100%;
+    font-family: Arial, Helvetica, sans-serif;
     width: 100%;
     height: 100%;
     padding: 20px;
@@ -41,6 +45,11 @@ const FilmCardFront = styled.div`
 const FilmCardBack = styled(FilmCardFront)`
     transform: rotateY(180deg);
 `;
+
+const Image = styled.img`
+    height: auto;
+    width: 100%;
+    animation-duration: 2s;
 
 const Star = styled.span`
     font-size: 25px;
