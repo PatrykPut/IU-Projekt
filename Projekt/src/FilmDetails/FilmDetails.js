@@ -32,7 +32,7 @@ const RightContainer = styled.div`
   justify-content: center;
   width: 50%;
   align-items: center;
-  border-right: solid black 2px;
+  border-left: solid black 2px;
 `;
 
 const MainContainer = styled.div`
@@ -108,6 +108,7 @@ const DescriptionTitle = styled.h2`
     margin-bottom: 1%;
     max-width: 90%;
     padding: 1%;
+    background-color: rgba(74, 74, 255, 0.2);
   `;
 
 
@@ -162,7 +163,11 @@ const Infos = styled.div`
     const Rating = styled.div`
     background-color: white;  
     padding: 15px;  
-    border-radius: 10px;
+    border-bottom: solid black 1px;
+
+    &:nth-child(odd) {
+      background-color: rgba(74, 74, 255, 0.2);
+    }
 `; 
   
     const Ratingp = styled.div`
