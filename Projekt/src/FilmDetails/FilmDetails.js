@@ -4,6 +4,37 @@ import { useParams } from "react-router-dom";
 import { InsertNewRating } from "./InsertNewRating";
 import { FilmContext } from "../Context/FilmContext";
 
+const CentralBackground = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+
+`;
+
+const LeftContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 50%;
+  border-right: solid black 2px;
+`;
+
+const RightContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  align-items: center;
+  border-left: solid black 2px;
+`;
+
 const MainContainer = styled.div`
   position: relative;
   top: 18vh;
@@ -17,7 +48,7 @@ const RatingButtonContainer = styled.button`
   width: 20vw;
   cursor: pointer;
   transition: 0.5s; 
-  margin-top: 1vh; 
+  margin-top: 0h; 
   font-size: 20px;
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
@@ -31,7 +62,6 @@ const RatingButtonContainer = styled.button`
 
 const ButtonContainer = styled.div`
   position: relative;
-  bottom: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,63 +69,54 @@ const ButtonContainer = styled.div`
 
 const Title = styled.h1`
   color: #262727;
-  font-size: 75px;
+  font-size: 200%;
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
-  border-radius: 3px;
-  padding: 10px;
-  font-family: Arial;
-  text-shadow: 0px 8px 15px rgba(1, 1, 1, 1);
+  border: solid black 1px;
+  border-radius: 10px;
+  background-color: white;
+  padding: 15px;
+  text-shadow: 0px 3px 5px rgba(1, 1, 1, 1);
+  max-width: 95%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: -20px;
 `; 
 
 const TitleInBox = styled.p`
-  font-size: 120%;
+  font-size: 170%;
   font-weight: bold;
   color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
 `;
 
 const DescriptionTitle = styled.h2`
     color: black;
-    font-size: 120%;
+    font-size: 140%;
     text-align: left;
     font-family: Arial;
-
-
-`;
-
-const TextonSite = styled.p`
-    text-align: left;
-    font-family: Arial;
-    font-size: 25px;
     font-weight: bold;
-    background-color: rgba(220, 220, 220, 0.10);
-    border: 2px solid black;
-    padding: 1%;
-    max-width:18%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    display: block;
-    box-shadow: 0px 8px 15px rgba(1, 1, 1, 1);
-    position: fixed;
-    left: 1%;
-    height: flex;
-    align-items: stretch;
-    top: 13%;
-    
-  
 `;
+
+  const DescriptionBorder = styled.div`
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    border: solid black 2px;
+    border-radius: 10px;
+    margin-bottom: 1%;
+    max-width: 90%;
+    padding: 1%;
+    background-color: rgba(74, 74, 255, 0.2);
+  `;
+
 
 const Plakat = styled.img`
-  width: 33%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   border-radius: 10px;
   opacity: 1;
   box-shadow: 0px 8px 15px rgba(1, 1, 1, 1);
+  width: 150%;
 `;
 const ImageContainer = styled.div`
   display: flex;
@@ -103,6 +124,7 @@ const ImageContainer = styled.div`
   align-items: center;
   border-radius: 10px;
   opacity: 1;
+  width: 60%;
   
 `;
 
@@ -112,35 +134,48 @@ const Infos = styled.div`
     font-family: Arial;
     font-size: 25px;
     font-weight: bold;
-    background-color: rgba(220, 220, 220, 0.10);
     border: 2px solid black;
     padding: 1%;
-    max-width:18%;
-    margin-left: auto;
-    margin-right: auto;
+    max-width:90%;
     margin-bottom: 10px;
-    border-radius: 5px;
-    display: block;
-    box-shadow: 0px 8px 15px rgba(1, 1, 1, 1);
-    position: fixed;
-    right: 1%;
+    border-radius: 10px;
     height: flex;
     align-items: stretch;
-    top: 13%;
+
 `;
+    const RatingBorder = styled.div `
+    display: flex;
+    border: solid black 2px;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 1%;
+    position: relative;
+    max-width: 90%;
+    `;
 
     const RatingContainer = styled.div`
     display: flex;
-    width: 50vw;
+    flex-direction: column;
+    width: 100%;
     justify-content: space-between;
 `;
 
     const Rating = styled.div`
     background-color: white;  
     padding: 15px;  
-    border-radius: 10px;
+    border-bottom: solid black 1px;
+
+    &:nth-child(odd) {
+      background-color: rgba(74, 74, 255, 0.2);
+    }
 `; 
   
+    const Ratingp = styled.div`
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    `;
+
   export const FilmDetails = () => {
 
   const { id } = useParams();
@@ -156,47 +191,48 @@ const Infos = styled.div`
       
 },[id]);
 
-  return (
-    
-      <MainContainer>
+return (
+  <MainContainer>
+    <Title>{film.name}</Title>  
+    <CentralBackground>
+      <LeftContainer>
+        <div>
+          <TitleInBox>{film.name}</TitleInBox>
+          <DescriptionBorder>
+          <DescriptionTitle>Filmbeschreibung:</DescriptionTitle>
+          <p>{film.description}</p>
+          </DescriptionBorder>
+          <Infos>
+            <p>Release Year:  {film.releaseYear}</p> 
+            <p>Director:      {film.director}</p> 
+            <p>Duration:      {film.duration} min.</p> 
+          </Infos>
+          <RatingButtonContainer onClick={() => setShowRatingSurvey(true)}>
+            Make Rating
+          </RatingButtonContainer>
+          
+          
+          <InsertNewRating filmId={id}/>
+        </div>
 
-
-        <Title>{film.name}</Title>  
-       
+        <RatingBorder>
+        <RatingContainer>
+          {film.ratings && film.ratings.map(rating => (<Rating key={rating.id}>
+            <Ratingp>Bewertung: {rating.rating}</Ratingp>
+            <Ratingp>Kommentar: {rating.comment}</Ratingp>
+          </Rating>))}
+        </RatingContainer>
+        </RatingBorder>
+      </LeftContainer>
+      <RightContainer>
         <ImageContainer>
           {film.movieposter
             ? <Plakat src={`data:image/jpeg;base64,${film.movieposter}`} alt="Filmplakat" />
             : <p>Kein Bild verfügbar</p>
-            }
+          }
         </ImageContainer> 
-        <br></br>   
- 
-
-        <br></br>                         
-        <TextonSite><DescriptionTitle>Filmbeschreibung: <br></br></DescriptionTitle>{film.description}</TextonSite>
-        <Infos>
-            <p><TitleInBox>{film.name}</TitleInBox></p>  
-
-            <p>Release Year:<br></br><br></br> {film.releaseYear}</p> 
-            
-            <p>Director:<br></br><br></br> {film.director}</p> 
-
-            <p>Duration:<br></br><br></br> {film.duration} min.</p> 
-        </Infos> 
-
-              
-        <br/>
-        
-        <RatingButtonContainer onClick={() => setShowRatingSurvey(true)}>
-          Make Rating
-        </RatingButtonContainer>
-        <InsertNewRating filmId={id}/>
-        <RatingContainer>
-          {film.ratings && film.ratings.map(rating => (<Rating key={rating.id}>
-            <p>Bewertung: {rating.rating}</p>
-            <p>Kommentar: {rating.comment}</p>
-          </Rating>))}
-        </RatingContainer>
-      </MainContainer>
-  )
+      </RightContainer>
+    </CentralBackground>
+  </MainContainer>
+)
 }
