@@ -41,7 +41,7 @@ export const Header = () => {
         <HeaderContainer>
                 <Title to="/">
                 <h1>
-                Filmbibliothek 
+                MovieLibrary 
                 </h1>
                 </Title>
         </HeaderContainer>
