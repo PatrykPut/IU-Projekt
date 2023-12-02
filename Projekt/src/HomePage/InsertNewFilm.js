@@ -29,7 +29,6 @@ const SurveyContainer = styled.div`
   justify-content: center;
   transition: 1s;
   background-color:lightgrey;
-  background-image: linear-gradient(to right, rgba(70,130,180,0.25) 0%, rgba(85,140,195,0.25) 20%, rgba(100,149,237,0.25) 40%, rgba(75,175,210,0.25) 50%, rgba(64,224,208,0.25) 60%, rgba(0,191,255,0.25) 80%, rgba(70,130,180,0.25) 100%);
   font-size: 100%;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;

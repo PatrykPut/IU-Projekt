@@ -199,7 +199,7 @@ return (
         <div>
           <TitleInBox>{film.name}</TitleInBox>
           <DescriptionBorder>
-          <DescriptionTitle>Filmbeschreibung:</DescriptionTitle>
+          <DescriptionTitle>Movie Description:</DescriptionTitle>
           <p>{film.description}</p>
           </DescriptionBorder>
           <Infos>
@@ -218,8 +218,8 @@ return (
         <RatingBorder>
         <RatingContainer>
           {film.ratings && film.ratings.map(rating => (<Rating key={rating.id}>
-            <Ratingp>Bewertung: {rating.rating}</Ratingp>
-            <Ratingp>Kommentar: {rating.comment}</Ratingp>
+            <Ratingp>Rating: {rating.rating}/5</Ratingp>
+            <Ratingp>Comment: {rating.comment}</Ratingp>
           </Rating>))}
         </RatingContainer>
         </RatingBorder>
@@ -228,7 +228,7 @@ return (
         <ImageContainer>
           {film.movieposter
             ? <Plakat src={`data:image/jpeg;base64,${film.movieposter}`} alt="Filmplakat" />
-            : <p>Kein Bild verfügbar</p>
+            : <p>no picture available</p>
           }
         </ImageContainer> 
       </RightContainer>
